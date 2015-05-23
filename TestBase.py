@@ -1,4 +1,4 @@
-import unittest
+from selenium.webdriver.firefox.webdriver import WebDriver
 
 
 class Profinity:
@@ -15,7 +15,12 @@ class UserLogin:
     password = 'secret'
 
 
-class BaseClass(unittest.TestCase):
+class BaseClass():
+
+    def __init__(self):
+        self.wd = WebDriver()
+        self.wd.implicitly_wait(60)
+
     def open_home_page(self):
         wd = self.wd
         wd.get("http://localhost/addressbook/group.php")
